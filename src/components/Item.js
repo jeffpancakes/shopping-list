@@ -1,19 +1,23 @@
 import React from 'react';
+import '../styles/Item.css';
 
 function Item({ item, onRemove, onToggleComplete }) {
   return (
-    <div className="item">
-      <span className="item-name">{item.name}</span>
-      <span className={`item-status ${item.completed ? '' : 'nevyresene'}`}>
-        {item.completed ? 'Vyřešeno' : 'Nevyřešeno'}
+    <div className="d-flex justify-content-between align-items-center">
+      <span className={`fw-bold ${item.completed ? 'item-completed' : 'item-incomplete'}`}>
+        {item.name}
       </span>
-      <button
-        className={item.completed ? 'incomplete-button' : 'complete-button'}
-        onClick={onToggleComplete}
-      >
-        {item.completed ? 'Nevyřešit' : 'Vyřešit'}
-      </button>
-      <button className="remove-button" onClick={onRemove}>Odstranit</button>
+      <div>
+        <button
+          className={`btn ${item.completed ? 'btn-danger' : 'btn-success'} btn-sm me-2`}
+          onClick={onToggleComplete}
+        >
+          {item.completed ? 'Nevyřešeno' : 'Vyřešeno'}
+        </button>
+        <button className="btn btn-danger btn-sm" onClick={onRemove}>
+          Odstranit
+        </button>
+      </div>
     </div>
   );
 }

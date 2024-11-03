@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ListDetail from './components/ListDetail';
 import EditList from './components/EditList';
 import shoppingListData from './data/shoppingListData';
+import EmptyPage from './components/EmptyPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [list, setList] = useState(shoppingListData);
@@ -42,7 +44,12 @@ function App() {
     setIsEditing(false);
   };
 
-  const filteredItems = list.items.filter(item => {
+  const handleCreateNewList = () => {
+    setList({ name: "Nový nákupní seznam", items: [], members: [] });
+    setIsEditing(true);
+  };
+
+  const filteredItems = list?.items.filter(item => {
     if (filter === 'all') return true;
     if (filter === 'completed') return item.completed;
     if (filter === 'incomplete') return !item.completed;
@@ -51,7 +58,9 @@ function App() {
 
   return (
     <div>
-      {isEditing ? (
+      {list === null ? (
+        <EmptyPage onCreateNew={handleCreateNewList} />
+      ) : isEditing ? (
         <EditList list={list} onSave={handleSave} onCancel={handleCancelEdit} />
       ) : (
         <ListDetail 

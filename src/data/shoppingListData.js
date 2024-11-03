@@ -7,12 +7,15 @@ const shoppingListData = {
     { id: 3, name: "Mouka", completed: false },
     { id: 4, name: "Máslo", completed: false },
     { id: 5, name: "Droždí", completed: true },
+    { id: 6, name: "Sůl", completed: false },
+    { id: 7, name: "Cukr", completed: false },
   ],
   members: [
-    { id: 1, name: "Člen 1" },
-    { id: 2, name: "Člen 2" },
-    { id: 3, name: "Člen 3" },
-    { id: 4, name: "Člen 4" },
+    { id: 1, name: "Adam", owner: true },
+    { id: 2, name: "Tereza" },
+    { id: 3, name: "Bára" },
+    { id: 4, name: "Petr" },
+    { id: 5, name: "Tomáš" },
   ],
 };
 

@@ -3,6 +3,7 @@ import shoppingListData from '../data/shoppingListData';
 import ListDetail from './ListDetail';
 import AddItemButton from './buttons/AddItemButton';
 import FilterItemsButton from './buttons/FilterItemsButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function ShoppingList() {
   const [list, setList] = useState(shoppingListData);
@@ -11,7 +12,7 @@ function ShoppingList() {
 
   const handleAddItem = () => {
     if (newItemName.trim()) {
-      const newItem = { id: Date.now(), name: newItemName, completed: false };
+      const newItem = { id: Date.now(), name: newItemName.trim(), completed: false };
       setList({ ...list, items: [...list.items, newItem] });
       setNewItemName('');
     }
@@ -29,16 +30,25 @@ function ShoppingList() {
   });
 
   return (
-    <div>
-      <ListDetail list={list} items={filteredItems} setList={setList} />
-      <input
-        type="text"
-        value={newItemName}
-        onChange={(e) => setNewItemName(e.target.value)}
-        placeholder="Přidat novou položku"
-      />
-      <AddItemButton onClick={handleAddItem} />
-      <FilterItemsButton onClick={handleFilter} />
+    <div className="container mt-4">
+      <div className="mb-4">
+        <ListDetail list={{ ...list, items: filteredItems }} setList={setList} />
+      </div>
+
+      <div className="mb-3 d-flex gap-2">
+        <input
+          type="text"
+          className="form-control"
+          value={newItemName}
+          onChange={(e) => setNewItemName(e.target.value)}
+          placeholder="Přidat novou položku"
+        />
+        <AddItemButton onClick={handleAddItem} />
+      </div>
+
+      <div className="mb-4">
+        <FilterItemsButton onClick={handleFilter} />
+      </div>
     </div>
   );
 }
