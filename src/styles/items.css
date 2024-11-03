@@ -1,0 +1,72 @@
+/* Položky seznamu */
+.items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+.item-name {
+    flex-grow: 1;
+    font-size: 18px;
+}
+
+.item-status {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #28a745; /* Zelená pro vyřešené */
+}
+
+.item-status.nevyresene {
+    color: #dc3545; /* Červená pro nevyřešené */
+}
+
+/* Obecný styl pro všechna tlačítka */
+button.remove-button, button.complete-button, button.incomplete-button {
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Styl pro tlačítko Odstranit */
+button.remove-button {
+    background-color: #dc3545;
+}
+
+button.remove-button:hover {
+    background-color: #c82333;
+}
+
+/* Styl pro tlačítko Vyřešit */
+button.complete-button {
+    background-color: #28a745; /* Zelená pro tlačítko Vyřešit */
+    margin-right: 10px;
+}
+
+button.complete-button:hover {
+    background-color: #218838;
+}
+
+/* Styl pro tlačítko Nevyřešit */
+button.incomplete-button {
+    background-color: #dc3545; /* Červená pro tlačítko Nevyřešit */
+    margin-right: 10px;
+}
+
+button.incomplete-button:hover {
+    background-color: #c82333;
+}

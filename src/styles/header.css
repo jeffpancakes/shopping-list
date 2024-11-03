@@ -1,0 +1,9 @@
+h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 4px solid #00aaff;
+    padding-bottom: 15px;
+    color: #00aaff;
+    font-weight: bold;
+}
